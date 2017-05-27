@@ -1,0 +1,17 @@
+Package: rnpsp
+Type: Package
+Title: Species Lists for National Parks
+Version: 0.1.0
+Author: Daijiang Li
+Maintainer: Daijiang Li <daijianglee@gmail.com>
+Description: Species lists for each national park provided by US National Park Services,
+    including plants, birds, fishes, bats, etc.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+URL: http://github.com/daijiang/rnpsp
+BugReports: https://github.com/daijiang/rnpsp/issues
+Imports: RCurl,
+    jsonlite
+Suggests: testthat
+RoxygenNote: 6.0.1
