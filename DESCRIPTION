@@ -11,8 +11,11 @@ Encoding: UTF-8
 LazyData: true
 URL: http://github.com/daijiang/rnps
 BugReports: https://github.com/daijiang/rnps/issues
+Depends:
+    R (>= 2.10)
 Imports: RCurl,
     jsonlite,
-    tibble
+    tibble,
+    curl
 Suggests: testthat
 RoxygenNote: 6.0.1
