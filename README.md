@@ -1,2 +1,3 @@
-# rnpsp
-R Package to Get National Park Species Lists.
+# rnps
+
+**R** package to get **N**ational **P**ark **S**ervices' sppecies Lists.
