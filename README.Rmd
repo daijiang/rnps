@@ -1,0 +1,40 @@
+---
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# rnps
+
+[![Build Status](https://travis-ci.org/daijiang/rnps.svg?branch=master)](https://travis-ci.org/daijiang/rnps) [![Coverage Status](https://img.shields.io/codecov/c/github/daijiang/rnps/master.svg)](https://codecov.io/github/daijiang/rnps?branch=master)
+
+
+**R** package to get **N**ational **P**ark **S**ervices' species Lists.
+
+## Overview
+
+This package is set to help download species lists (at this moment, may extend to download other data) from park units managed by [National Park Services](https://www.nps.gov). The website we download from is [NPSpecies](https://irma.nps.gov/NPSpecies/Search/SpeciesList), which includes >500 park units for 17 taxa groups. I have downloaded all available records for plants (`rnps::nps_plants`) and birds (`rnps::nps_birds`) in this package since it takes a while to do so.
+
+To check all park units, use 
+
+```{r parks}
+rnps::get_nps_code()
+```
+
+To check all taxa groups, use
+
+```{r taxa}
+rnps::get_taxa_code()
+```
+
+To get species list of one taxa group at a specific park, use 
+
+```{r one}
+rnps::get_one_park(parkcode = "ACAD", categcode = 3) # 3 for fish
+```
+
+## Further ideas
+
+It is possible to also download other information about national parks, such as area, visitors, etc in the future. Contributes are welcome.
