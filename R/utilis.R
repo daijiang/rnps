@@ -60,7 +60,7 @@ get_one_park = function(parkcode = "ACAD", categcode = 11){
 
   output = tibble::as.tibble(output)
 
-  if(nrow(output) == 0) warning("Please make sure the park code ", parkcode, " is correct.")
+  if(nrow(output) == 0) warning("No results. Please make sure the park code ", parkcode, " is correct.")
 
   output
 }
