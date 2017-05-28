@@ -1,6 +1,3 @@
-#' @importFrom tibble as.tibble
-NULL
-
 #' get unicode and full names of national park units
 #' @examples
 #' nps_code = get_nps_code()
@@ -43,7 +40,7 @@ get_taxa_code = function(){
 #' @examples
 #' get_one_park("ABLI", 11)
 get_one_park = function(parkcode = "ACAD", categcode = 11){
-  cat(parkcode, " \t")
+  # cat(parkcode, " \t")
 
   url = "https://irma.nps.gov/NPSpecies/Search/GetSpeciesListFullListResults"
   output = RCurl::postForm(uri = url,

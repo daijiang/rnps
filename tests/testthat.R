@@ -1,4 +1,4 @@
 library(testthat)
-library(rnpsp)
+library(rnps)
 
-test_check("rnpsp")
+test_check("rnps")

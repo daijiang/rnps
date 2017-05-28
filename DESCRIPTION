@@ -12,6 +12,7 @@ LazyData: true
 URL: http://github.com/daijiang/rnps
 BugReports: https://github.com/daijiang/rnps/issues
 Imports: RCurl,
-    jsonlite
+    jsonlite,
+    tibble
 Suggests: testthat
 RoxygenNote: 6.0.1
