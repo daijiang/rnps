@@ -36,28 +36,35 @@ get_taxa_code = function(){
 #' 15 16             Chromista
 #' 16 15              Bacteria
 #' 17 17               Archaea
+#' @param searchlevel the level of search: 1: checklist; 2: full list; 3: full list with detaisl. Default is 3.
 #' @export
 #' @examples
 #' get_one_park("ABLI", 11)
-get_one_park = function(parkcode = "ACAD", categcode = 11){
-  # cat(parkcode, " \t")
+get_one_park = function(parkcode = "ACAD", categcode = 11, searchlevel = 3){
+  cat(parkcode, " \t")
 
-  url = "https://irma.nps.gov/NPSpecies/Search/GetSpeciesListFullListResults"
+  if(searchlevel == 1){
+    url = "https://irma.nps.gov/NPSpecies/Search/GetSpeciesListChecklistResults"
+  }
+  if(searchlevel == 2){
+    url = "https://irma.nps.gov/NPSpecies/Search/GetSpeciesListFullListResults"
+  }
+  if(searchlevel == 3){
+    url = "https://irma.nps.gov/NPSpecies/Search/GetSpeciesListFullListWithDetailsResults"
+  }
+
   output = RCurl::postForm(uri = url,
                     .params = list(UnitCode = parkcode,
                                    CategoryCode = categcode),
                     .opts = RCurl::curlOptions(referer = "https://irma.nps.gov/NPSpecies/Search/SpeciesList")
   )
+
   output = as.data.frame(jsonlite::fromJSON(output)$Results, stringsAsFactors = FALSE)
 
-  if(length(output) > 1) {
-    output$Synonyms = NULL
-    output$SciNameFormatted = NULL
+  if(nrow(output) == 0) {
+    warning("No results. Please make sure the park code ", parkcode, " is correct.")
+    return()
   }
 
-  output = tibble::as.tibble(output)
-
-  if(nrow(output) == 0) warning("No results. Please make sure the park code ", parkcode, " is correct.")
-
-  output
+  tibble::as.tibble(output)
 }

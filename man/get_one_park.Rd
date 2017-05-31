@@ -4,7 +4,7 @@
 \alias{get_one_park}
 \title{get species list for one park from https://irma.nps.gov/NPSpecies/Search/SpeciesList}
 \usage{
-get_one_park(parkcode = "ACAD", categcode = 11)
+get_one_park(parkcode = "ACAD", categcode = 11, searchlevel = 3)
 }
 \arguments{
 \item{parkcode}{four digits code for parks from `rnpsp::get_nps_code()$UnitCode`.}
@@ -28,6 +28,8 @@ get_one_park(parkcode = "ACAD", categcode = 11)
 15 16             Chromista
 16 15              Bacteria
 17 17               Archaea}
+
+\item{searchlevel}{the level of search: 1: checklist; 2: full list; 3: full list with detaisl. Default is 3.}
 }
 \description{
 get species list for one park from https://irma.nps.gov/NPSpecies/Search/SpeciesList

@@ -1,8 +1,9 @@
 library(jsonlite)
 library(RCurl)
 library(tibble)
+library(dplyr)
 
-source("Rcode/utilis.R")
+source("R/utilis.R")
 
 nps_code = get_nps_code()
 taxa_code = get_taxa_code()
@@ -14,6 +15,9 @@ if(!file.exists("data/nps_plants.rda")){
                                                     categcode = 11)) %>%
     tbl_df()
 
+  nps_plants = nps_plants[c("UnitCode", "SciName", "CommonNames", "Family", "Order", "Kingdom",
+                          "RecordStatus", "Occurrence", "Abundance", "Nativeness", "NPSTags")]
+
   devtools::use_data(nps_plants, compress = "xz", overwrite = T)
 }
 
@@ -23,5 +27,9 @@ if(!file.exists("data/nps_birds.rda")){
                                                    categcode = 2)) %>%
     tbl_df()
 
+  nps_birds = nps_birds[c("UnitCode", "SciName", "CommonNames", "Family", "Order", "Kingdom",
+                          "RecordStatus", "Occurrence", "Abundance", "Nativeness", "NPSTags")]
+
   devtools::use_data(nps_birds, compress = "xz", overwrite = T)
 }
+
