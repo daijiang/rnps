@@ -6,6 +6,13 @@ rnps
 
 **R** package to get **N**ational **P**ark **S**ervices' species Lists.
 
+You can install this package with
+
+```r
+install.packages("devtools")
+devtools::install_github("daijiang/rnps")
+```
+
 Overview
 --------
 
